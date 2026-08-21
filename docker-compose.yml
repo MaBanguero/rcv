@@ -1,0 +1,25 @@
+# =============================================================================
+# RCV — Riesgo Cardiovascular (docker-compose para Coolify / producción)
+# =============================================================================
+# Por ahora solo el frontend (con mock data). El backend FastAPI se agregará
+# como servicio aparte cuando se entreguen la ficha técnica y los archivos
+# de población (Jefe James) y laboratorios (BIOS/EMERLAB).
+#
+# En Coolify: usar este archivo como "Docker Compose" y exponer el puerto 3000.
+# =============================================================================
+services:
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rcv-http.entrypoints=http"
+      - "traefik.http.routers.rcv-http.rule=Host(`rcv.esenorte3.lat`)"
+      - "traefik.http.routers.rcv-http.middlewares=redirect-to-https"
+      - "traefik.http.routers.rcv.entrypoints=https"
+      - "traefik.http.routers.rcv.rule=Host(`rcv.esenorte3.lat`)"
+      - "traefik.http.routers.rcv.tls.certresolver=letsencrypt"
+      - "traefik.http.services.rcv.loadbalancer.server.port=3000"
+    environment: {}

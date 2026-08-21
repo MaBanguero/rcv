@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --color-white-theme: #ffffff;
+  --color-gray-50-theme: #f9fafb;
+  --color-gray-100-theme: #f3f4f6;
+  --color-gray-200-theme: #e5e7eb;
+  --color-gray-300-theme: #d1d5db;
+  --color-gray-400-theme: #9ca3af;
+  --color-gray-500-theme: #6b7280;
+  --color-gray-600-theme: #4b5563;
+  --color-gray-700-theme: #374151;
+  --color-gray-800-theme: #1f2937;
+  --color-gray-900-theme: #111827;
+}
+
+@theme {
+  --color-white: var(--color-white-theme);
+  --color-gray-50: var(--color-gray-50-theme);
+  --color-gray-100: var(--color-gray-100-theme);
+  --color-gray-200: var(--color-gray-200-theme);
+  --color-gray-300: var(--color-gray-300-theme);
+  --color-gray-400: var(--color-gray-400-theme);
+  --color-gray-500: var(--color-gray-500-theme);
+  --color-gray-600: var(--color-gray-600-theme);
+  --color-gray-700: var(--color-gray-700-theme);
+  --color-gray-800: var(--color-gray-800-theme);
+  --color-gray-900: var(--color-gray-900-theme);
+
+  /* Paleta institucional — salud (teal/esmeralda) */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  --color-sidebar: #052e2b;
+  --color-sidebar-hover: #064e3b;
+  --color-sidebar-active: #047857;
+  --color-sidebar-text: #6ee7b7;
+  --color-sidebar-text-active: #ffffff;
+
+  /* Verde semáforo */
+  --color-emerald: #059669;
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  --color-amber: #d97706;
+  --color-rose: #e11d48;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in { animation: fadeIn 0.3s ease-out; }
+.animate-scale-in { animation: scaleIn 0.2s ease-out; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
